@@ -15,11 +15,12 @@ def start(bot, update):
 
 def echo(bot, update):
 
-    msg = "You type: " + update.message.text
+    msg = update.message.text
 
-    bot.send_message(
-        chat_id=update.message.chat_id,
-        text=msg
+    if msg.lower().__eq__("bom dia"):
+        bot.send_message(
+            chat_id=update.message.chat_id,
+            text="Bom dia!"
     )
 
 start_handler = CommandHandler('start', start)
