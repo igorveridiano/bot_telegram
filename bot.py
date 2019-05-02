@@ -20,8 +20,22 @@ def echo(bot, update):
     if msg.lower().__eq__("bom dia"):
         bot.send_message(
             chat_id=update.message.chat_id,
-            text="Bom dia!"
-    )
+            text="Bom dia!")
+
+    elif msg.lower().__eq__("boa noite"):
+        bot.send_message(
+            chat_id=update.message.chat_id,
+            text="Boa noite!")
+
+    elif msg.lower().__eq__("boa tarde"):
+        bot.send_message(
+            chat_id=update.message.chat_id,
+            text="Boa tarde!")
+
+    elif msg.lower().__eq__("oi") or msg.lower().__eq__("ola") or msg.lower().__eq__("olá") or msg.lower().__eq__("hi"):
+        bot.send_message(
+            chat_id=update.message.chat_id,
+            text="Olá, precisa de ajuda!")
 
 start_handler = CommandHandler('start', start)
 echo_handler = MessageHandler(Filters.text, echo)
