@@ -1,3 +1,2 @@
 python-telegram-bot>=11.1.0
 pip>=10.0.1
-python=3.6
