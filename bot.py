@@ -49,11 +49,11 @@ def echo(bot, update):
             text="Olá, precisa de ajuda!")
 
     elif msg.lower().__contains__("filme:"):
-        msg = msg.replace('filme:', '')
+        msg = msg.lower().replace('filme:', '')
 
         movie = ia.search_movie(msg)
 
-        msg = 'Filmes com o nome' + ' ' + msg + 'encontrados: '
+        msg = 'Filmes com o nome' + ' ' + msg + ' encontrados: '
         if movie.__len__() > 1:
             teste = True
             for movies in movie:
@@ -77,7 +77,7 @@ def echo(bot, update):
                  "info:'nome do filme aqui'")
 
     elif msg.lower().__contains__("info:"):
-        msg = msg.replace('info:', '')
+        msg = msg.lower().replace('info:', '')
 
         movie = ia.search_movie(msg)
 
@@ -90,7 +90,7 @@ def echo(bot, update):
             text=msg)
 
     elif msg.lower().__contains__("pessoa:"):
-        msg = msg.replace('pessoa:', '')
+        msg = msg.lower().replace('pessoa:', '')
 
         pessoa = ia.search_person(msg)
         msg = 'Pessoas com o nome' + ' ' + msg + 'encontrados: '
