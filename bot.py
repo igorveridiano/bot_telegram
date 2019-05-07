@@ -74,10 +74,10 @@ def echo(bot, update):
         bot.send_message(
             chat_id=update.message.chat_id,
             text="Caso o filme que deseja esteja na lista, e deseje ver mais informações sobre o filme, use: "
-                 "info filme:'nome do filme aqui'")
+                 "info:'nome do filme aqui'")
 
-    elif msg.lower().__contains__("info filme:"):
-        msg = msg.replace('info filme:', '')
+    elif msg.lower().__contains__("info:"):
+        msg = msg.replace('info:', '')
 
         movie = ia.search_movie(msg)
 
@@ -98,10 +98,10 @@ def echo(bot, update):
             teste = True
             for pessoas in pessoa:
                 if teste:
-                    msg = msg + pessoas['title']
+                    msg = msg + pessoas['nome']
                     teste = False
                 else:
-                    msg = msg + ', ' + pessoas['title']
+                    msg = msg + ', ' + pessoas['nome']
         elif pessoa.__len__() == 1:
             msg = msg + pessoa[0]['name']
         elif pessoa.__len__() == 0:
