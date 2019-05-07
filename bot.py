@@ -62,8 +62,10 @@ def echo(bot, update):
                     teste = False
                 else:
                     msg = msg + ', ' + movies['title']
-        else:
+        elif movie.__len__() == 1:
             msg = msg + movie[0]['title']
+        elif movie.__len__() == 0:
+            msg = 'Filme não encontrado'
 
         bot.send_message(
             chat_id=update.message.chat_id,
@@ -100,8 +102,10 @@ def echo(bot, update):
                     teste = False
                 else:
                     msg = msg + ', ' + pessoas['title']
-        else:
+        elif pessoa.__len__() == 1:
             msg = msg + pessoa[0]['name']
+        elif pessoa.__len__() == 0:
+            msg = "Pessoa não encontrada"
 
         bot.send_message(
             chat_id=update.message.chat_id,
