@@ -83,7 +83,7 @@ def echo(bot, update):
 
         movie = ia.get_movie(movie[0].getID(), info=['taglines', 'plot'])
 
-        msg = 'Sinopse: ' + movie.get_current_info('plot')[1]
+        msg = 'Sinopse: ' + movie.get('plot')[1]
 
         bot.send_message(
             chat_id=update.message.chat_id,
@@ -98,10 +98,10 @@ def echo(bot, update):
             teste = True
             for pessoas in pessoa:
                 if teste:
-                    msg = msg + pessoas['nome']
+                    msg = msg + pessoas['name']
                     teste = False
                 else:
-                    msg = msg + ', ' + pessoas['nome']
+                    msg = msg + ', ' + pessoas['name']
         elif pessoa.__len__() == 1:
             msg = msg + pessoa[0]['name']
         elif pessoa.__len__() == 0:
