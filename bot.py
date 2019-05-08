@@ -2,7 +2,7 @@ from telegram.ext import Updater, Filters
 from telegram.ext import CommandHandler, MessageHandler
 from imdb import IMDb
 
-updater = Updater(token="851095270:AAGYsUcw3zQ-iOmhPBE5A4EogpAXeBciZPA")
+updater = Updater(token="801303690:AAEGzd7LBIAMtak0wptiMdHZn5N6KmW5sW4")
 dispatcher = updater.dispatcher
 
 ia = IMDb()
@@ -83,8 +83,11 @@ def echo(bot, update):
 
         movie = ia.get_movie(movie[0].getID(), info=['taglines', 'plot'])
 
-        if movie.__len__() != 0:
-            msg = 'Sinopse: ' + movie.get('plot')[1]
+        if movie.__len__() != 0 and movie.get('plot').__len__() != 0:
+            if movie.get('plot').__len__() == 2:
+                msg = 'Sinopse: ' + movie.get('plot')[1]
+            elif movie.get('plot').__len__() == 1:
+                msg = 'Sinopse: ' + movie.get('plot')[0]
         else:
             msg = 'Sinopse não encontrada'
 
