@@ -83,7 +83,10 @@ def echo(bot, update):
 
         movie = ia.get_movie(movie[0].getID(), info=['taglines', 'plot'])
 
-        msg = 'Sinopse: ' + movie.get('plot')[1]
+        if movie.__len__() != 0:
+            msg = 'Sinopse: ' + movie.get('plot')[1]
+        else:
+            msg = 'Sinopse não encontrada'
 
         bot.send_message(
             chat_id=update.message.chat_id,
